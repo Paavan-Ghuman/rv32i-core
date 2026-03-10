@@ -2,8 +2,6 @@ RISC-V RV32I Processor Core
 
 Implementation of a 32-bit RISC-V processor (RV32I) designed in SystemVerilog and simulated using ModelSim and GTKWave. The processor follows a 5-stage pipeline architecture and demonstrates core concepts of modern CPU design including hazard handling and pipeline control. 
 
-README
-
 Project Summary
 
 This project implements the base RV32I instruction set architecture using a classic pipelined CPU design. The processor supports instruction execution through the five standard stages:
@@ -19,8 +17,6 @@ Memory Access (MEM)
 Write Back (WB)
 
 Pipeline control mechanisms are included to handle data hazards, stalls, and forwarding paths during instruction execution. 
-
-README
 
 Main Components
 
