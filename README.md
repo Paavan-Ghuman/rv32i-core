@@ -1,41 +1,72 @@
-RISC-V RV32I Processor Core
+# 🧠 RV32I RISC-V Processor Core
 
-Implementation of a 32-bit RISC-V processor (RV32I) designed in SystemVerilog and simulated using ModelSim and GTKWave. The processor follows a 5-stage pipeline architecture and demonstrates core concepts of modern CPU design including hazard handling and pipeline control. 
+A **32-bit RISC-V (RV32I) pipelined processor** implemented in **SystemVerilog** and verified using **ModelSim** and **GTKWave**.  
+This project demonstrates the design and simulation of a classic **5-stage CPU pipeline** with hazard handling and forwarding mechanisms.
 
-Project Summary
+---
 
-This project implements the base RV32I instruction set architecture using a classic pipelined CPU design. The processor supports instruction execution through the five standard stages:
+## 📌 Project Overview
 
-Instruction Fetch (IF)
+This processor follows the **RISC-V RV32I instruction set architecture** and executes instructions through a five-stage pipeline:
 
-Instruction Decode (ID)
+1. **Instruction Fetch (IF)**
+2. **Instruction Decode (ID)**
+3. **Execute (EX)**
+4. **Memory Access (MEM)**
+5. **Write Back (WB)**
 
-Execute (EX)
+The implementation focuses on core **computer architecture concepts**, including pipeline control, instruction decoding, register operations, and instruction execution flow.
 
-Memory Access (MEM)
+---
 
-Write Back (WB)
+## ⚙️ Key Features
 
-Pipeline control mechanisms are included to handle data hazards, stalls, and forwarding paths during instruction execution. 
+- ✅ 5-Stage CPU Pipeline  
+- ✅ RV32I Base Instruction Set  
+- ✅ Data Hazard Detection  
+- ✅ Forwarding Logic for Pipeline Efficiency  
+- ✅ Stall and Flush Control  
+- ✅ Memory Read / Write Support  
+- ✅ Modular SystemVerilog Architecture  
 
-Main Components
+---
 
-Fetch Unit – Retrieves instructions from memory and updates the program counter
+## 🧩 Architecture Components
 
-Decode Unit – Interprets instructions and reads operands from registers
+| Component | Description |
+|-----------|-------------|
+| **Fetch Unit** | Retrieves instructions and updates the program counter |
+| **Decode Unit** | Decodes instructions and reads register operands |
+| **Execute Unit (ALU)** | Performs arithmetic, logic, and branch operations |
+| **Memory Unit** | Handles load/store instructions |
+| **Writeback Unit** | Writes results back to the register file |
 
-ALU / Execute Unit – Performs arithmetic, logical, and branch operations
+---
 
-Memory Unit – Handles load and store instructions
+## 🏗 Pipeline Architecture
 
-Writeback Unit – Writes computation results back to the register file
+```
+Instruction Fetch → Instruction Decode → Execute → Memory → Write Back
+        (IF)              (ID)             (EX)      (MEM)      (WB)
+```
 
-Tools Used
+Pipeline registers separate each stage to enable **parallel instruction execution**.
 
-SystemVerilog – Hardware design and module implementation
+---
 
-ModelSim / QuestaSim – Simulation and verification
+## 🛠 Tools & Technologies
 
-GTKWave – Signal waveform visualization
+| Tool | Purpose |
+|-----|--------|
+| **SystemVerilog** | Hardware description and module implementation |
+| **ModelSim / QuestaSim** | Simulation and debugging |
+| **GTKWave** | Waveform visualization |
+| **Icarus Verilog** | Alternative open-source simulator |
 
-Icarus Verilog – Alternative open-source simulator
+---
+
+## 🎓 Academic Context
+
+Developed as part of a **Computer Architecture course project**, exploring CPU pipeline design, instruction execution, and hardware verification techniques.
+
+---
