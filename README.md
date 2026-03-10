@@ -1,78 +1,45 @@
-# 🧠 RISC-V 32-Bit CPU Implementation  
+RISC-V RV32I Processor Core
 
-A full 5-stage pipelined **RISC-V RV32I** processor designed and simulated using **SystemVerilog**, **ModelSim**, and **GTKWave**.  
-This project implements instruction fetch, decode, execute, memory, and write-back stages with integrated **data hazard detection**, **forwarding paths**, and **error handling**.
+Implementation of a 32-bit RISC-V processor (RV32I) designed in SystemVerilog and simulated using ModelSim and GTKWave. The processor follows a 5-stage pipeline architecture and demonstrates core concepts of modern CPU design including hazard handling and pipeline control. 
 
----
+README
 
-## ⚙️ Overview  
+Project Summary
 
-This CPU core is built as part of an academic and research-oriented project to explore **computer architecture design**, **pipeline optimization**, and **hardware-software co-simulation**.  
-It adheres to the RISC-V ISA specification (RV32I base integer instruction set) and demonstrates core concepts of a modern pipelined CPU.
+This project implements the base RV32I instruction set architecture using a classic pipelined CPU design. The processor supports instruction execution through the five standard stages:
 
-### 🔹 Key Features
-- **5-Stage Pipeline** – IF, ID, EX, MEM, WB  
-- **Data Hazard Detection and Forwarding**  
-- **Stall and Flush Control Logic**  
-- **Branch Prediction Mechanism (Static)**  
-- **Memory Read/Write Handling**  
-- **Error Checking for Invalid Instructions & Memory Access**  
-- **Parameterizable Design (Data & Address Widths)**  
+Instruction Fetch (IF)
 
----
+Instruction Decode (ID)
 
-## 🧩 Module Breakdown  
+Execute (EX)
 
-| Stage | Module | Description |
-|:------|:--------|:-------------|
-| **Instruction Fetch (IF)** | `fetch.sv` | Fetches instructions from memory using the PC register; manages PC increments and branch updates. |
-| **Instruction Decode (ID)** | `decode.sv` | Decodes the fetched instruction and reads register operands. |
-| **Execute (EX)** | `alu.sv`, `control.sv` | Performs arithmetic/logic operations and branch target calculations. |
-| **Memory (MEM)** | `memory.sv` | Handles load/store operations to data memory. |
-| **Writeback (WB)** | `writeback.sv` | Writes results back to the register file. |
-| **Top Module** | `pdX.sv`, `design_wrapper.sv` | Integrates all stages and control logic; manages pipeline register transitions. |
+Memory Access (MEM)
 
----
+Write Back (WB)
 
-## 🧠 Design Architecture  
+Pipeline control mechanisms are included to handle data hazards, stalls, and forwarding paths during instruction execution. 
 
-      ┌────────────┐
-      │ Instruction│
-      │    Fetch   │
-      └──────┬─────┘
-             │ IF/ID
-      ┌──────┴─────┐
-      │ Instruction│
-      │   Decode   │
-      └──────┬─────┘
-             │ ID/EX
-      ┌──────┴─────┐
-      │  Execute   │
-      │ (ALU + Fwd)│
-      └──────┬─────┘
-             │ EX/MEM
-      ┌──────┴─────┐
-      │   Memory   │
-      │ Access     │
-      └──────┬─────┘
-             │ MEM/WB
-      ┌──────┴─────┐
-      │ Write Back │
-      └────────────┘
+README
 
+Main Components
 
----
+Fetch Unit – Retrieves instructions from memory and updates the program counter
 
-| Tool                     | Purpose                                        |
-| :----------------------- | :--------------------------------------------- |
-| **SystemVerilog**        | Hardware description and module implementation |
-| **ModelSim / QuestaSim** | Simulation and debugging                       |
-| **GTKWave**              | Waveform visualization                         |
-| **Icarus Verilog**       | Open-source simulation (Windows-compatible)    |
+Decode Unit – Interprets instructions and reads operands from registers
 
+ALU / Execute Unit – Performs arithmetic, logical, and branch operations
 
-🙏 Acknowledgment
+Memory Unit – Handles load and store instructions
 
-Special thanks to Professor Anirudh Kaushik from the Department of Electrical Engineering and Computer Science (EECS 4201),
-Lassonde School of Engineering, York University, for providing the base project framework and support that made this implementation possible.
+Writeback Unit – Writes computation results back to the register file
 
+Tools Used
+
+SystemVerilog – Hardware design and module implementation
+
+ModelSim / QuestaSim – Simulation and verification
+
+GTKWave – Signal waveform visualization
+
+Icarus Verilog – Alternative open-source simulator
